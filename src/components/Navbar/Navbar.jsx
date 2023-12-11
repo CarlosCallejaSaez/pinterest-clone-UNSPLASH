@@ -15,7 +15,7 @@ export default function Navbar(props) {
             <div className="navbar_pinterest">
                 <div className="logo">
                     <img
-                        src="https://graffica.info/wp-content/uploads/2017/08/badgeRGB-512x452.png"
+                        src="https://logowik.com/content/uploads/images/418_pinterest.jpg"
                         alt="pinterest logo P png"
                     />
                 </div>
