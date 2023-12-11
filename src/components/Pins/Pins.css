@@ -1,12 +1,12 @@
 .container__pins {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 16px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .container__pins {
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
