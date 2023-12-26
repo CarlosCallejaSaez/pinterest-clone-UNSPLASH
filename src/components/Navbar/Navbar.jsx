@@ -25,11 +25,10 @@ export default function Navbar(props) {
                 </div>
                 <div className="searchbar">
                     <form action="">
-                        <i className="material-icons">search</i>
+                        <i className="material-icons">Search</i>
                         <input
                             className="search_box"
                             type="text"
-                            placeholder="Search"
                             onChange={(e) => {
                                 setInput(e.target.value);
                             }}

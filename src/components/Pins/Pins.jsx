@@ -4,9 +4,8 @@ import PictureCard from "../PictureCard/PictureCard";
 import "./Pins.css";
 
 function Pins(props) {
-  const [images, setimages] = useState([]);
- 
-
+  const [images, setImages] = useState([]);
+  const [error, setError] = useState(null);
 
   const API_KEY = import.meta.env.VITE_UNSPLASH_API_KEY;
 
@@ -15,19 +14,27 @@ function Pins(props) {
     fetch(url)
       .then((resp) => resp.json())
       .then((data) => {
-        setimages(data.results);
+        if (data.results && data.results.length > 0) {
+          setImages(data.results);
+          setError(null);
+        } else {
+          setImages([]);
+          setError("No results found");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+        setError("No results found");
       });
   }, [props.InputKey]);
-
 
   return (
     <div>
       <div className="container__pins">
-
-    
-        {images.map((element) => {
-
-          return (
+        {error ? (
+          <p>{error}</p>
+        ) : (
+          images.map((element) => (
             <PictureCard
               key={element.urls.raw}
               imageUrl={
@@ -36,13 +43,11 @@ function Pins(props) {
                   : element.urls.full
               }
             />
-          );
-        })}
-
+          ))
+        )}
       </div>
-
-
     </div>
   );
 }
+
 export default Pins;

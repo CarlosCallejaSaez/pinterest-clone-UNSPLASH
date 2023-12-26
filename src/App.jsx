@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pins from "./components/Pins/Pins";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [InputKey, setInputKey] = useState("random");
@@ -9,6 +10,7 @@ function App() {
     <>
       <Navbar onSubmit={setInputKey} />
       <Pins InputKey={InputKey} />
+      <Footer />
     </>
   );
 }
